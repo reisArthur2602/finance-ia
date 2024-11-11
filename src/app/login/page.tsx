@@ -7,7 +7,7 @@ import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Login - Finance.ia",
+  title: "Login - finance.ia",
 };
 
 const LoginPage = async () => {
@@ -24,7 +24,7 @@ const LoginPage = async () => {
             height={39}
             width={174}
           />
-          <h2 className="text-4xl font-bold">Bem-Vindo</h2>
+          <h1>Bem-Vindo</h1>
           <p>
             A Finance AI é uma plataforma de gestão financeira que utiliza IA
             para monitorar suas movimentações, e oferecer insights

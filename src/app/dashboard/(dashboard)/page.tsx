@@ -1,5 +1,9 @@
 import { UserButton } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home - finance.ai",
+};
 
 const DashboardPage = () => {
   return (

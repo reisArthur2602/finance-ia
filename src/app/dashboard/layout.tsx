@@ -5,8 +5,8 @@ import React from "react";
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   const { userId } = await auth();
   !userId && redirect("/login");
-  
-  return children;
+
+  return <main className="h-full px-8 py-5">{children}</main>;
 };
 
 export default DashboardLayout;
