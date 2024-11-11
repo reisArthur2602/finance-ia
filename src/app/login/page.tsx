@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { SignInButton } from "@clerk/nextjs";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 import Image from "next/image";
 
@@ -7,7 +10,10 @@ export const metadata: Metadata = {
   title: "Login - Finance.ia",
 };
 
-const LoginPage = () => {
+const LoginPage = async () => {
+  const { userId } = await auth();
+  userId && redirect("/dashboard");
+
   return (
     <div className="grid h-full grid-cols-2">
       <div className="flex h-full items-center justify-center">
@@ -24,15 +30,17 @@ const LoginPage = () => {
             para monitorar suas movimentações, e oferecer insights
             personalizados, facilitando o controle do seu orçamento.
           </p>
-          <Button variant={"outline"}>
-            <Image
-              src="/google.svg"
-              alt="logo do google"
-              height={20}
-              width={20}
-            />
-            Entrar com o Google
-          </Button>
+          <SignInButton>
+            <Button variant={"outline"}>
+              <Image
+                src="/google.svg"
+                alt="logo do google"
+                height={20}
+                width={20}
+              />
+              Entrar com o Google
+            </Button>
+          </SignInButton>
         </div>
       </div>
 
