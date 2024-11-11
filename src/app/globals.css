@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+body,
+html {
+  font-family: "Mulish", sans-serif;
 }
 
 @layer utilities {
@@ -75,6 +78,14 @@ body {
   html {
     @apply h-full;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-white;
+  }
+
   body {
     @apply h-full bg-background text-foreground;
   }
