@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import React from "react";
 import { transactionsColumns } from "./transactions.column";
 import { db } from "@/lib/prisma";
-import AddTransactionButton from "@/components/add-transaction-button";
+import AddTransactionButton from "@/app/dashboard/components/add-transaction-button";
 
 export const metadata: Metadata = {
   title: "Transações - finance.ai",

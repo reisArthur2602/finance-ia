@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 
 import Image from "next/image";
+import Logo from "@/components/logo";
 
 export const metadata: Metadata = {
   title: "Login - finance.ia",
@@ -18,12 +19,7 @@ const LoginPage = async () => {
     <div className="grid h-full grid-cols-2">
       <div className="flex h-full items-center justify-center">
         <div className="mx-auto flex w-full max-w-[30.5rem] flex-col gap-8">
-          <Image
-            src="/logo.svg"
-            alt="logo finance.ia"
-            height={39}
-            width={174}
-          />
+          <Logo />
           <h1>Bem-Vindo</h1>
           <p>
             A Finance AI é uma plataforma de gestão financeira que utiliza IA

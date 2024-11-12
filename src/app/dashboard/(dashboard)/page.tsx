@@ -1,4 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,12 +5,7 @@ export const metadata: Metadata = {
 };
 
 const DashboardPage = () => {
-  return (
-    <div>
-      DashboardPage
-      <UserButton showName />
-    </div>
-  );
+  return <div>DashboardPage</div>;
 };
 
 export default DashboardPage;

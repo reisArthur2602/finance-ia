@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../../../components/ui/button";
 import { ArrowDownUp } from "lucide-react";
 import {
   Dialog,
@@ -11,7 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
+} from "../../../components/ui/dialog";
 import { DialogDescription } from "@radix-ui/react-dialog";
 import {
   Form,
@@ -20,7 +20,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "./ui/form";
+} from "../../../components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { transactionSchema } from "@/app/dashboard/transactions/transactions.schema";
@@ -30,7 +30,7 @@ import {
   TransactionType,
 } from "@prisma/client";
 import { z } from "zod";
-import { Input } from "./ui/input";
+import { Input } from "../../../components/ui/input";
 import { MoneyInput } from "./money-input";
 import {
   Select,
@@ -38,13 +38,13 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../../../components/ui/select";
 import {
   TRANSACTION_CATEGORY_OPTIONS,
   TRANSACTION_PAYMENT_METHOD_OPTIONS,
   TRANSACTION_TYPE_OPTIONS,
 } from "@/app/dashboard/transactions/transactions.constants";
-import { DatePicker } from "./ui/data-picker";
+import { DatePicker } from "../../../components/ui/data-picker";
 import { CreateTransaction } from "@/actions/create-transaction";
 import { toast } from "sonner";
 
