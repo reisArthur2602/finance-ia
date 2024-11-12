@@ -22,6 +22,7 @@ const HeaderDashboard = () => {
 
         {NAV_LINKS.map(({ name, path }) => (
           <Link
+            key={path}
             href={path}
             className={`font-bold ${pathname === path ? "text-primary" : "text-muted-foreground"}`}
           >
