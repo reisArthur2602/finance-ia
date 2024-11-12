@@ -1,14 +1,12 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import { formatedAmount, formatedDate, getTransactionType } from "@/lib/utils";
+import { formatedAmount, formatedDate } from "@/lib/utils";
 import { Transaction } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
-import { CircleIcon, TrashIcon } from "lucide-react";
-import { twMerge } from "tailwind-merge";
+
 import EditTransactionButton from "./sessions/edit-transaction-button";
-import { Button } from "@/components/ui/button";
 import DeleteTransactionButton from "./sessions/delete-transaction-button";
+import TransactionTypeBadge from "./sessions/transaction-type-badge";
 
 export const transactionsColumns: ColumnDef<Transaction>[] = [
   {
@@ -18,16 +16,9 @@ export const transactionsColumns: ColumnDef<Transaction>[] = [
   {
     accessorKey: "type",
     header: "Tipo",
-    cell: ({ row: { original: transaction } }) => {
-      const typeTransaction = getTransactionType(transaction.type);
-
-      return (
-        <Badge className={typeTransaction.style}>
-          <CircleIcon size={10} className={typeTransaction.fill} />
-          {typeTransaction.name}
-        </Badge>
-      );
-    },
+    cell: ({ row: { original: transaction } }) => (
+      <TransactionTypeBadge type={transaction.type} />
+    ),
   },
   {
     accessorKey: "category",

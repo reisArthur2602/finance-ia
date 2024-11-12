@@ -19,11 +19,11 @@ html {
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
-    --card: transparent; /* Adjusted to be transparent */
+    --card: transparent;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 102 59% 44%; /* Adjusted for #55B02E */
+    --primary: 102 59% 44%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -35,7 +35,7 @@ html {
     --destructive-foreground: 0 0 100%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 102 59% 44%; /* Adjusted for #55B02E */
+    --ring: 102 59% 44%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
