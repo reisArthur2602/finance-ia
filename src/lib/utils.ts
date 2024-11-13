@@ -21,6 +21,6 @@ export const formatedAmount = (amount: Decimal | number) => {
   }).format(Number(amount));
 };
 
-export const formatedPercentage = (value: number, total: number) => {
+export const formatedPercentage = (value: number | Decimal, total: number) => {
   return Math.round((Number(value || 0) / Number(total)) * 100);
 };

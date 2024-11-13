@@ -1,10 +1,17 @@
 import { db } from "@/lib/prisma";
 import { formatedPercentage } from "@/lib/utils";
 import { auth } from "@clerk/nextjs/server";
-import { TransactionType } from "@prisma/client";
+import { TransactionCategory, TransactionType } from "@prisma/client";
+import { Decimal } from "@prisma/client/runtime/library";
 
 export type TransactionPercentagePerType = {
   [key in TransactionType]: number;
+};
+
+export type TotalExpensePerCategory = {
+  category: TransactionCategory;
+  totalAmount: number;
+  percentageOfTotal: number;
 };
 
 export const useDashboard = async (month: string) => {
@@ -85,11 +92,32 @@ export const useDashboard = async (month: string) => {
     ),
   };
 
+  const totalExpensePerCategory: TotalExpensePerCategory[] = (
+    await db.transaction.groupBy({
+      by: ["category"],
+      where: {
+        ...where,
+        type: TransactionType.EXPENSE,
+      },
+      _sum: {
+        amount: true,
+      },
+    })
+  ).map((category) => ({
+    category: category.category,
+    totalAmount: Number(category._sum.amount),
+    percentageOfTotal: formatedPercentage(
+      category._sum.amount as Decimal,
+      expensesTotal,
+    ),
+  }));
+
   return {
     balance,
     investmentsTotal,
     depositsTotal,
     expensesTotal,
     typesPercentage,
+    totalExpensePerCategory,
   };
 };
