@@ -10,11 +10,12 @@ export const CreateTransaction = async (
   data: Omit<Prisma.TransactionCreateInput, "userId">,
 ) => {
   transactionSchema.parse(data);
-  
+
   const { userId } = await auth();
+
   if (!userId) throw new Error("O Usuário não está autenticado");
 
-  await db.transaction.create({ data });
+  await db.transaction.create({ data: { ...data, userId } });
 
   revalidatePath("/dashboard/transactions");
 };
