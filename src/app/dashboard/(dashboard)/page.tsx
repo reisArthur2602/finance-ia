@@ -4,6 +4,7 @@ import { useDashboard } from "../hooks/useDashboard";
 import SummaryCards from "./sessions/summary-cards";
 import { isMatch } from "date-fns";
 import { redirect } from "next/navigation";
+import TransactionsPieChart from "./sessions/transactions-pie-chart";
 
 export const metadata: Metadata = {
   title: "Home - finance.ai",
@@ -34,7 +35,17 @@ const DashboardPage = async ({
       <div className="grid h-full grid-cols-[2fr,1fr] gap-10">
         <section className="bg-red flex flex-col gap-6">
           <SummaryCards data={dashboard} />
-          <div>...</div>
+
+          <div className="grid grid-cols-[1fr,2fr] gap-6 ">
+            <TransactionsPieChart
+              typesPercentage={dashboard.typesPercentage}
+              depositsTotal={dashboard.depositsTotal}
+              expensesTotal={dashboard.expensesTotal}
+              investmentsTotal={dashboard.investmentsTotal}
+            />
+
+            <div>...</div>
+          </div>
         </section>
 
         <section>...</section>
